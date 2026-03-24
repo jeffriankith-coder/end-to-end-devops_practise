@@ -12,7 +12,7 @@ pipeline {
 
         stage('Clone Repo') {
             steps {
-                git 'git@github.com:jeffriankith-coder/end-to-end-devops_practise.git'
+                git 'https://github.com/jeffriankith-coder/end-to-end-devops_practise.git'
             }
         }
 
