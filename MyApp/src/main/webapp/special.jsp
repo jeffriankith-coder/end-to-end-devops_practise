@@ -12,7 +12,13 @@ html, body{
     font-family: Arial, sans-serif;
     text-align:center;
     color:white;
-    background:#cc0000;
+
+    /* Heart background image */
+    background-image:url('images/hearts-bg.png');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
     overflow-x:hidden;
 }
 
@@ -37,10 +43,15 @@ html, body{
 img{
     margin-top:30px;
     border-radius:15px;
-    box-shadow:0 0 20px rgba(0,0,0,0.6);
+    box-shadow:0 0 25px rgba(255,255,255,0.8);
+    transition:transform 0.5s;
 }
 
-/* Heart styling */
+img:hover{
+    transform:scale(1.1);
+}
+
+/* Floating heart styling */
 .heart{
     position:absolute;
     width:20px;
@@ -121,14 +132,13 @@ Because with you, life feels right. It feels complete.
 <p>
 And in my heart, there’s this quiet excitement for the future…
 for all the moments we haven’t lived yet. I can’t wait for the day when we get to share those moments together,
-when distance and waiting won’t matter anymore. That moment, with you, is something I hold so close to my heart…
-and I truly can’t wait for it.
+when distance and waiting won’t matter anymore.
 </p>
 
 <p>
 I want to see you every morning in my arms when we get up and still be very cute,
 have our fights, dropping you in school, doing my work and missing you all day waiting for your call
-so I can come and pick you. I will be very excited to be with you.
+so I can come and pick you.
 </p>
 
 <p>
@@ -146,10 +156,42 @@ But first, I can't wait to have this moment with you.
 
 <br>
 
-<!-- Correct image path -->
 <img src="images/image.jpeg" alt="My Image" width="300">
 
 </div>
+
+<!-- Flower Shower Animation -->
+<script>
+
+function createFlower(){
+
+    const flower=document.createElement("div");
+    flower.innerHTML="🌸";
+
+    flower.style.position="fixed";
+    flower.style.left=Math.random()*window.innerWidth+"px";
+    flower.style.top="-20px";
+    flower.style.fontSize="25px";
+
+    document.body.appendChild(flower);
+
+    let fall=setInterval(function(){
+
+        let top=parseInt(flower.style.top);
+
+        if(top>window.innerHeight){
+            clearInterval(fall);
+            flower.remove();
+        }
+
+        flower.style.top=top+5+"px";
+
+    },50);
+}
+
+setInterval(createFlower,300);
+
+</script>
 
 </body>
 </html>
