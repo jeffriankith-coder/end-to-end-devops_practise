@@ -13,7 +13,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/YOUR_GITHUB_USERNAME/end-to-end-devops_practise.git'
+                git branch: 'main', url: 'https://github.com/jeffriankith-coder/end-to-end-devops_practise.git'
             }
         }
 
